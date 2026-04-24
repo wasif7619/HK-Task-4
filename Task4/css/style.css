@@ -1,7 +1,6 @@
 
    /* CSS VARIABLES FOR THEMES */
 
-
 /* Light Mode (Default) */
 :root {
     /* Background Colors */
@@ -193,7 +192,7 @@ body.dark-mode .toggle-ball {
    /* HERO SECTION */
 
 .hero {
-    min-height: 100vh;
+    min-height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -235,37 +234,88 @@ body.dark-mode .toggle-ball {
     animation: fadeInUp 0.6s ease 0.2s backwards;
 }
 
-   /* BUTTON STYLES */
+ /* ============================================
+   RESPONSIVE BUTTON FIXES
+   ============================================ */
 
+/* General Button Styles */
 .btn {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
     font-size: 1rem;
     font-weight: 600;
+    border-radius: 8px;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    border: none;
+    white-space: nowrap;
 }
 
-.btn-primary {
-    background: var(--btn-primary);
-    color: white;
+/* For Hero Section Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.btn-primary:hover {
-    background: var(--btn-primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+/* ============================================
+   MOBILE RESPONSIVE BUTTON FIXES
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Reduce button width on mobile */
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: auto;
+        min-width: 140px;
+    }
+    
+    /* Make buttons full width on very small screens */
+    @media (max-width: 480px) {
+        .btn {
+            width: 100%;
+            max-width: 200px;
+            padding: 10px 16px;
+            font-size: 0.85rem;
+        }
+        
+        .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+    }
 }
 
-.btn-secondary {
-    background: var(--btn-secondary);
-    color: var(--text-primary);
+/* For Contact Form Button */
+.contact-form .btn {
+    width: auto;
+    min-width: 160px;
 }
 
-.btn-secondary:hover {
-    background: var(--btn-secondary-hover);
-    transform: translateY(-2px);
+@media (max-width: 480px) {
+    .contact-form .btn {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* For Service Card Buttons */
+.service-link {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+/* For Gallery Overlay Buttons (if any) */
+.gallery-overlay .btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
 }
 
    /* FEATURES SECTION */
